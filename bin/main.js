@@ -201,7 +201,7 @@ class FHEHelper {
         }
     }
 
-    async compareEqual(encryptedValue: Buffer, searchValue: number): Promise<boolean> {
+    async compareEqual(encryptedValue, searchValue) {
         try {
             // Create encoder for the search value
             const encoder = this.seal.BatchEncoder(this.context);
