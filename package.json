@@ -1,0 +1,16 @@
+{
+  "name": "fhe",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/main.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^5.0.1",
+    "mongodb": "^6.12.0",
+    "morgan": "~1.9.1",
+    "node-seal": "^5.1.4"
+  }
+}
