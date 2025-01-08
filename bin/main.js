@@ -287,6 +287,23 @@ async function initialize() {
 
 // Khởi tạo và setup routes
 initialize().then(({fheHelper, db}) => {
+    // Middleware to measure time and memory usage
+    app.use((req, res, next) => {
+        const startHrTime = process.hrtime();
+        const startMemoryUsage = process.memoryUsage().heapUsed;
+
+        res.on('finish', () => {
+            const elapsedHrTime = process.hrtime(startHrTime);
+            const elapsedTimeInMs = elapsedHrTime[0] * 1000 + elapsedHrTime[1] / 1e6;
+            const endMemoryUsage = process.memoryUsage().heapUsed;
+            const memoryUsageInKB = (endMemoryUsage - startMemoryUsage) / 1024;
+
+            console.log(`${req.method} ${req.originalUrl} - ${elapsedTimeInMs.toFixed(3)} ms, ${memoryUsageInKB.toFixed(3)} KB`);
+        });
+
+        next();
+    });
+
     // Route để lưu dữ liệu
     app.post('/store', async (req, res) => {
         try {
@@ -330,7 +347,6 @@ initialize().then(({fheHelper, db}) => {
     app.listen(3000, () => {
         console.log('FHE PoC server running on port 3000');
     });
-
 
     app.get('/search/:value', async (req, res) => {
         try {
