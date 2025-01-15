@@ -2,7 +2,7 @@
 
 const express = require('express');
 const SEAL = require('node-seal');
-const {MongoClient, ServerApiVersion} = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const fs = require('fs').promises;
 const path = require('path');
@@ -20,7 +20,7 @@ class FHEConfig {
     async ensureConfigDirectory() {
         const directory = path.dirname(this.configPath);
         try {
-            await fs.mkdir(directory, {recursive: true});
+            await fs.mkdir(directory, { recursive: true });
         } catch (error) {
             if (error.code !== 'EEXIST') {
                 throw error;
@@ -33,10 +33,7 @@ class FHEConfig {
         const configData = {
             publicKey: Buffer.from(fheHelper.publicKey.save()).toString('base64'),
             secretKey: Buffer.from(fheHelper.secretKey.save()).toString('base64'),
-            params: Buffer.from(fheHelper.parms.save()).toString('base64'),
-            // Thêm timestamp để theo dõi
-            timestamp: new Date().toISOString(),
-            version: '1.0'
+            params: Buffer.frobin / main.js
         };
 
         // Lưu vào file với định dạng đẹp
@@ -113,19 +110,19 @@ class FHEHelper {
     }
 
     async initialize() {
-        // Thử tải tham số từ config
         const paramsLoaded = await this.config.loadParams(this);
 
         if (!paramsLoaded) {
-            // Nếu không có config, tạo mới các tham số
+            // Update these parameters
             this.schemeType = this.seal.SchemeType.bfv;
             this.securityLevel = this.seal.SecurityLevel.tc128;
-            this.polyModulusDegree = 4096;
+            this.polyModulusDegree = 8192;  // Changed from 4096 to 8192
 
             this.parms = this.seal.EncryptionParameters(this.schemeType);
             this.parms.setPolyModulusDegree(this.polyModulusDegree);
 
-            const bitSizes = new Int32Array([36, 36, 37]);
+            // Updated bit sizes
+            const bitSizes = new Int32Array([40, 40, 40]); // Changed from [36,36,37]
             const coeffModulus = this.seal.CoeffModulus.Create(
                 this.polyModulusDegree,
                 bitSizes
@@ -268,14 +265,24 @@ async function initialize() {
 
         const uri = "mongodb+srv://vietdunghoanghust:123Qaz@cluster0.osxrt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-        const client = await MongoClient.connect(uri, {
+        // Add these MongoDB options
+        const mongoOptions = {
+            maxPoolSize: 50,
+            minPoolSize: 10,
+            maxIdleTimeMS: 30000,
             serverApi: {
                 version: ServerApiVersion.v1,
                 strict: true,
                 deprecationErrors: true,
             }
-        });
+        };
+
+        const client = await MongoClient.connect(uri, mongoOptions);
         const db = client.db('fhe_poc');
+        
+        // Add index for encrypted data
+        await db.collection('encrypted_data').createIndex({ encryptedValue: 1 });
+        
         console.log('MongoDB connected successfully');
 
         return {fheHelper, db};
@@ -286,7 +293,7 @@ async function initialize() {
 }
 
 // Khởi tạo và setup routes
-initialize().then(({fheHelper, db}) => {
+initialize().then(({ fheHelper, db }) => {
     // Middleware to measure time and memory usage
     app.use((req, res, next) => {
         const startHrTime = process.hrtime();
@@ -307,7 +314,7 @@ initialize().then(({fheHelper, db}) => {
     // Route để lưu dữ liệu
     app.post('/store', async (req, res) => {
         try {
-            const {value} = req.body;
+            const { value } = req.body;
             const encryptedValue = await fheHelper.encrypt(value);
 
             const result = await db.collection('encrypted_data').insertOne({
@@ -321,26 +328,26 @@ initialize().then(({fheHelper, db}) => {
             });
         } catch (error) {
             console.error('Store error:', error);
-            res.status(500).json({error: error.message});
+            res.status(500).json({ error: error.message });
         }
     });
 
     // Route để đọc dữ liệu
     app.get('/retrieve/:id', async (req, res) => {
         try {
-            const {ObjectId} = require('mongodb');
+            const { ObjectId } = require('mongodb');
             const doc = await db.collection('encrypted_data')
-                .findOne({_id: new ObjectId(req.params.id)});
+                .findOne({ _id: new ObjectId(req.params.id) });
 
             if (!doc) {
-                return res.status(404).json({error: 'Document not found'});
+                return res.status(404).json({ error: 'Document not found' });
             }
 
             const decryptedValue = await fheHelper.decrypt(doc.encryptedValue);
-            res.json({value: decryptedValue});
+            res.json({ value: decryptedValue });
         } catch (error) {
             console.error('Retrieve error:', error);
-            res.status(500).json({error: error.message});
+            res.status(500).json({ error: error.message });
         }
     });
 
@@ -351,45 +358,35 @@ initialize().then(({fheHelper, db}) => {
     app.get('/search/:value', async (req, res) => {
         try {
             const searchValue = parseInt(req.params.value);
-            const batchSize = 100; // Number of documents to process in each batch
             const matches = [];
-    
-            // Get all encrypted records
-            const cursor = await db.collection('encrypted_data').find({});
-            const documents = await cursor.toArray();
-    
-            // Divide documents into batches
-            const batches = [];
-            for (let i = 0; i < documents.length; i += batchSize) {
-                batches.push(documents.slice(i, i + batchSize));
+
+            // Get all encrypted records in batches
+            const batchSize = 10;
+            const cursor = await db.collection('encrypted_data').find({}).batchSize(batchSize);
+
+            while (await cursor.hasNext()) {
+                const doc = await cursor.next();
+                const isMatch = await fheHelper.compareEqual(doc.encryptedValue, searchValue);
+
+                if (isMatch) {
+                    matches.push({
+                        id: doc._id,
+                        value: searchValue
+                    });
+                }
+
+                // Add a small delay between operations to prevent memory buildup
+                await new Promise(resolve => setTimeout(resolve, 10));
             }
-    
-            console.log(`Processing ${batches.length} batches...`);
-    
-            // Process each batch in parallel
-            await Promise.all(
-                batches.map(async (batch) => {
-                    for (const doc of batch) {
-                        const isMatch = await fheHelper.compareEqual(doc.encryptedValue, searchValue);
-                        if (isMatch) {
-                            matches.push({
-                                id: doc._id,
-                                value: searchValue,
-                            });
-                        }
-                    }
-                })
-            );
-    
+
             res.json({
                 success: true,
                 matches: matches,
-                count: matches.length,
+                count: matches.length
             });
         } catch (error) {
             console.error('Search error:', error);
             res.status(500).json({ error: error.message });
         }
     });
-    
 }).catch(console.error);

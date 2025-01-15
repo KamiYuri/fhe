@@ -33,10 +33,7 @@ class FHEConfig {
         const configData = {
             publicKey: Buffer.from(fheHelper.publicKey.save()).toString('base64'),
             secretKey: Buffer.from(fheHelper.secretKey.save()).toString('base64'),
-            params: Buffer.from(fheHelper.parms.save()).toString('base64'),
-            // Thêm timestamp để theo dõi
-            timestamp: new Date().toISOString(),
-            version: '1.0'
+            params: Buffer.frobin/main.js
         };
 
         // Lưu vào file với định dạng đẹp
@@ -351,45 +348,31 @@ initialize().then(({fheHelper, db}) => {
     app.get('/search/:value', async (req, res) => {
         try {
             const searchValue = parseInt(req.params.value);
-            const batchSize = 100; // Number of documents to process in each batch
             const matches = [];
-    
+
             // Get all encrypted records
             const cursor = await db.collection('encrypted_data').find({});
             const documents = await cursor.toArray();
-    
-            // Divide documents into batches
-            const batches = [];
-            for (let i = 0; i < documents.length; i += batchSize) {
-                batches.push(documents.slice(i, i + batchSize));
+
+            // Check each record
+            for (const doc of documents) {
+                const isMatch = await fheHelper.compareEqual(doc.encryptedValue, searchValue);
+                if (isMatch) {
+                    matches.push({
+                        id: doc._id,
+                        value: searchValue
+                    });
+                }
             }
-    
-            console.log(`Processing ${batches.length} batches...`);
-    
-            // Process each batch in parallel
-            await Promise.all(
-                batches.map(async (batch) => {
-                    for (const doc of batch) {
-                        const isMatch = await fheHelper.compareEqual(doc.encryptedValue, searchValue);
-                        if (isMatch) {
-                            matches.push({
-                                id: doc._id,
-                                value: searchValue,
-                            });
-                        }
-                    }
-                })
-            );
-    
+
             res.json({
                 success: true,
                 matches: matches,
-                count: matches.length,
+                count: matches.length
             });
         } catch (error) {
             console.error('Search error:', error);
-            res.status(500).json({ error: error.message });
+            res.status(500).json({error: error.message});
         }
     });
-    
 }).catch(console.error);

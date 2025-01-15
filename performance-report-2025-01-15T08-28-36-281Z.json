@@ -1,0 +1,785 @@
+{
+  "timestamp": "2025-01-15T08:28:36.281Z",
+  "summary": {
+    "totalOperations": 65,
+    "store": {
+      "count": 50,
+      "time": {
+        "avg": 102.89273088,
+        "min": 60.615342,
+        "max": 201.31004699999994
+      },
+      "memory": {
+        "avg": 40.2615625,
+        "min": -1256.09375,
+        "max": 302.5390625
+      },
+      "successRate": 100
+    },
+    "retrieve": {
+      "count": 10,
+      "time": {
+        "avg": 82.84968980000012,
+        "min": 55.32512299999962,
+        "max": 133.72735399999965
+      },
+      "memory": {
+        "avg": 62.70859375,
+        "min": 61.1484375,
+        "max": 68.703125
+      },
+      "successRate": 100
+    },
+    "search": {
+      "count": 5,
+      "time": {
+        "avg": 28678.684733200003,
+        "min": 28599.347760999997,
+        "max": 28774.796702
+      },
+      "memory": {
+        "avg": -463.0890625,
+        "min": -2594.6328125,
+        "max": 80.96875
+      },
+      "successRate": 100
+    }
+  },
+  "detailedResults": [
+    {
+      "name": "Store Value: 45",
+      "success": true,
+      "timeMs": 147.024409,
+      "memoryKB": 185.984375,
+      "timestamp": "2025-01-15T08:26:07.055Z",
+      "result": {
+        "success": true,
+        "id": "6787711eeb49f030798ae0bc"
+      }
+    },
+    {
+      "name": "Store Value: 982",
+      "success": true,
+      "timeMs": 65.04586500000002,
+      "memoryKB": 162.0546875,
+      "timestamp": "2025-01-15T08:26:07.120Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0bd"
+      }
+    },
+    {
+      "name": "Store Value: 954",
+      "success": true,
+      "timeMs": 60.615342,
+      "memoryKB": 108.8203125,
+      "timestamp": "2025-01-15T08:26:07.181Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0be"
+      }
+    },
+    {
+      "name": "Store Value: 388",
+      "success": true,
+      "timeMs": 65.75625000000002,
+      "memoryKB": 88.671875,
+      "timestamp": "2025-01-15T08:26:07.247Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0bf"
+      }
+    },
+    {
+      "name": "Store Value: 300",
+      "success": true,
+      "timeMs": 100.27792300000004,
+      "memoryKB": 114.234375,
+      "timestamp": "2025-01-15T08:26:07.347Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0c0"
+      }
+    },
+    {
+      "name": "Store Value: 928",
+      "success": true,
+      "timeMs": 142.08651299999997,
+      "memoryKB": 111.375,
+      "timestamp": "2025-01-15T08:26:07.489Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0c1"
+      }
+    },
+    {
+      "name": "Store Value: 552",
+      "success": true,
+      "timeMs": 99.96198299999992,
+      "memoryKB": 89.40625,
+      "timestamp": "2025-01-15T08:26:07.589Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0c2"
+      }
+    },
+    {
+      "name": "Store Value: 907",
+      "success": true,
+      "timeMs": 201.31004699999994,
+      "memoryKB": 105.9921875,
+      "timestamp": "2025-01-15T08:26:07.791Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0c3"
+      }
+    },
+    {
+      "name": "Store Value: 794",
+      "success": true,
+      "timeMs": 84.45162100000005,
+      "memoryKB": 302.5390625,
+      "timestamp": "2025-01-15T08:26:07.875Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0c4"
+      }
+    },
+    {
+      "name": "Store Value: 85",
+      "success": true,
+      "timeMs": 87.67900799999984,
+      "memoryKB": 90.421875,
+      "timestamp": "2025-01-15T08:26:07.963Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0c5"
+      }
+    },
+    {
+      "name": "Store Value: 338",
+      "success": true,
+      "timeMs": 70.5428780000002,
+      "memoryKB": 74.6796875,
+      "timestamp": "2025-01-15T08:26:08.034Z",
+      "result": {
+        "success": true,
+        "id": "6787711feb49f030798ae0c6"
+      }
+    },
+    {
+      "name": "Store Value: 929",
+      "success": true,
+      "timeMs": 92.66222200000016,
+      "memoryKB": 71.96875,
+      "timestamp": "2025-01-15T08:26:08.127Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0c7"
+      }
+    },
+    {
+      "name": "Store Value: 404",
+      "success": true,
+      "timeMs": 96.06150600000001,
+      "memoryKB": 81.46875,
+      "timestamp": "2025-01-15T08:26:08.223Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0c8"
+      }
+    },
+    {
+      "name": "Store Value: 162",
+      "success": true,
+      "timeMs": 100.37220300000013,
+      "memoryKB": 72.4921875,
+      "timestamp": "2025-01-15T08:26:08.324Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0c9"
+      }
+    },
+    {
+      "name": "Store Value: 797",
+      "success": true,
+      "timeMs": 97.66418500000009,
+      "memoryKB": -872.3671875,
+      "timestamp": "2025-01-15T08:26:08.421Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0ca"
+      }
+    },
+    {
+      "name": "Store Value: 596",
+      "success": true,
+      "timeMs": 98.0198949999999,
+      "memoryKB": 71.7890625,
+      "timestamp": "2025-01-15T08:26:08.519Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0cb"
+      }
+    },
+    {
+      "name": "Store Value: 567",
+      "success": true,
+      "timeMs": 99.62479099999996,
+      "memoryKB": 72.1796875,
+      "timestamp": "2025-01-15T08:26:08.619Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0cc"
+      }
+    },
+    {
+      "name": "Store Value: 658",
+      "success": true,
+      "timeMs": 98.63881700000002,
+      "memoryKB": 71.65625,
+      "timestamp": "2025-01-15T08:26:08.718Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0cd"
+      }
+    },
+    {
+      "name": "Store Value: 225",
+      "success": true,
+      "timeMs": 99.01885700000003,
+      "memoryKB": 72.5,
+      "timestamp": "2025-01-15T08:26:08.817Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0ce"
+      }
+    },
+    {
+      "name": "Store Value: 172",
+      "success": true,
+      "timeMs": 98.87140799999997,
+      "memoryKB": 78.71875,
+      "timestamp": "2025-01-15T08:26:08.916Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0cf"
+      }
+    },
+    {
+      "name": "Store Value: 751",
+      "success": true,
+      "timeMs": 96.3889650000001,
+      "memoryKB": 72.1015625,
+      "timestamp": "2025-01-15T08:26:09.012Z",
+      "result": {
+        "success": true,
+        "id": "67877120eb49f030798ae0d0"
+      }
+    },
+    {
+      "name": "Store Value: 413",
+      "success": true,
+      "timeMs": 101.46651400000019,
+      "memoryKB": 71.7734375,
+      "timestamp": "2025-01-15T08:26:09.114Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d1"
+      }
+    },
+    {
+      "name": "Store Value: 648",
+      "success": true,
+      "timeMs": 95.89291999999978,
+      "memoryKB": 72.0390625,
+      "timestamp": "2025-01-15T08:26:09.210Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d2"
+      }
+    },
+    {
+      "name": "Store Value: 528",
+      "success": true,
+      "timeMs": 100.82308000000012,
+      "memoryKB": 71.671875,
+      "timestamp": "2025-01-15T08:26:09.311Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d3"
+      }
+    },
+    {
+      "name": "Store Value: 760",
+      "success": true,
+      "timeMs": 100.550119,
+      "memoryKB": 71.984375,
+      "timestamp": "2025-01-15T08:26:09.411Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d4"
+      }
+    },
+    {
+      "name": "Store Value: 503",
+      "success": true,
+      "timeMs": 97.71421400000008,
+      "memoryKB": 71.671875,
+      "timestamp": "2025-01-15T08:26:09.509Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d5"
+      }
+    },
+    {
+      "name": "Store Value: 312",
+      "success": true,
+      "timeMs": 98.08567700000003,
+      "memoryKB": 71.984375,
+      "timestamp": "2025-01-15T08:26:09.607Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d6"
+      }
+    },
+    {
+      "name": "Store Value: 133",
+      "success": true,
+      "timeMs": 96.86887200000001,
+      "memoryKB": 71.671875,
+      "timestamp": "2025-01-15T08:26:09.704Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d7"
+      }
+    },
+    {
+      "name": "Store Value: 390",
+      "success": true,
+      "timeMs": 99.70844299999999,
+      "memoryKB": 72.671875,
+      "timestamp": "2025-01-15T08:26:09.804Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d8"
+      }
+    },
+    {
+      "name": "Store Value: 213",
+      "success": true,
+      "timeMs": 98.16072000000031,
+      "memoryKB": 71.734375,
+      "timestamp": "2025-01-15T08:26:09.902Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0d9"
+      }
+    },
+    {
+      "name": "Store Value: 697",
+      "success": true,
+      "timeMs": 179.92789399999992,
+      "memoryKB": 73.84375,
+      "timestamp": "2025-01-15T08:26:10.082Z",
+      "result": {
+        "success": true,
+        "id": "67877121eb49f030798ae0da"
+      }
+    },
+    {
+      "name": "Store Value: 470",
+      "success": true,
+      "timeMs": 128.41044900000043,
+      "memoryKB": 71.6875,
+      "timestamp": "2025-01-15T08:26:10.211Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0db"
+      }
+    },
+    {
+      "name": "Store Value: 618",
+      "success": true,
+      "timeMs": 167.2136260000002,
+      "memoryKB": 81.1640625,
+      "timestamp": "2025-01-15T08:26:10.378Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0dc"
+      }
+    },
+    {
+      "name": "Store Value: 221",
+      "success": true,
+      "timeMs": 99.30552499999976,
+      "memoryKB": 72.3828125,
+      "timestamp": "2025-01-15T08:26:10.477Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0dd"
+      }
+    },
+    {
+      "name": "Store Value: 6",
+      "success": true,
+      "timeMs": 101.64919199999986,
+      "memoryKB": 72.03125,
+      "timestamp": "2025-01-15T08:26:10.579Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0de"
+      }
+    },
+    {
+      "name": "Store Value: 349",
+      "success": true,
+      "timeMs": 96.28611799999999,
+      "memoryKB": -1256.09375,
+      "timestamp": "2025-01-15T08:26:10.676Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0df"
+      }
+    },
+    {
+      "name": "Store Value: 714",
+      "success": true,
+      "timeMs": 98.69019800000024,
+      "memoryKB": 72.03125,
+      "timestamp": "2025-01-15T08:26:10.774Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0e0"
+      }
+    },
+    {
+      "name": "Store Value: 98",
+      "success": true,
+      "timeMs": 102.80636600000025,
+      "memoryKB": 72.4140625,
+      "timestamp": "2025-01-15T08:26:10.877Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0e1"
+      }
+    },
+    {
+      "name": "Store Value: 816",
+      "success": true,
+      "timeMs": 95.8642490000002,
+      "memoryKB": 72,
+      "timestamp": "2025-01-15T08:26:10.973Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0e2"
+      }
+    },
+    {
+      "name": "Store Value: 856",
+      "success": true,
+      "timeMs": 94.74785999999949,
+      "memoryKB": 72.484375,
+      "timestamp": "2025-01-15T08:26:11.068Z",
+      "result": {
+        "success": true,
+        "id": "67877122eb49f030798ae0e3"
+      }
+    },
+    {
+      "name": "Store Value: 292",
+      "success": true,
+      "timeMs": 100.08273800000006,
+      "memoryKB": 81.0546875,
+      "timestamp": "2025-01-15T08:26:11.168Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0e4"
+      }
+    },
+    {
+      "name": "Store Value: 868",
+      "success": true,
+      "timeMs": 97.70282700000007,
+      "memoryKB": 72.0390625,
+      "timestamp": "2025-01-15T08:26:11.266Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0e5"
+      }
+    },
+    {
+      "name": "Store Value: 704",
+      "success": true,
+      "timeMs": 97.61830099999952,
+      "memoryKB": 72.046875,
+      "timestamp": "2025-01-15T08:26:11.364Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0e6"
+      }
+    },
+    {
+      "name": "Store Value: 335",
+      "success": true,
+      "timeMs": 99.69873299999927,
+      "memoryKB": 71.7109375,
+      "timestamp": "2025-01-15T08:26:11.464Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0e7"
+      }
+    },
+    {
+      "name": "Store Value: 853",
+      "success": true,
+      "timeMs": 99.65384400000039,
+      "memoryKB": 72.015625,
+      "timestamp": "2025-01-15T08:26:11.563Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0e8"
+      }
+    },
+    {
+      "name": "Store Value: 481",
+      "success": true,
+      "timeMs": 102.24721899999986,
+      "memoryKB": 72.953125,
+      "timestamp": "2025-01-15T08:26:11.666Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0e9"
+      }
+    },
+    {
+      "name": "Store Value: 376",
+      "success": true,
+      "timeMs": 96.11241399999926,
+      "memoryKB": 72.5078125,
+      "timestamp": "2025-01-15T08:26:11.762Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0ea"
+      }
+    },
+    {
+      "name": "Store Value: 947",
+      "success": true,
+      "timeMs": 97.01706099999956,
+      "memoryKB": 71.703125,
+      "timestamp": "2025-01-15T08:26:11.859Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0eb"
+      }
+    },
+    {
+      "name": "Store Value: 261",
+      "success": true,
+      "timeMs": 98.30425100000048,
+      "memoryKB": 72.0703125,
+      "timestamp": "2025-01-15T08:26:11.957Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0ec"
+      }
+    },
+    {
+      "name": "Store Value: 80",
+      "success": true,
+      "timeMs": 99.95243200000004,
+      "memoryKB": 77.140625,
+      "timestamp": "2025-01-15T08:26:12.057Z",
+      "result": {
+        "success": true,
+        "id": "67877123eb49f030798ae0ed"
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711eeb49f030798ae0bc)",
+      "success": true,
+      "timeMs": 133.72735399999965,
+      "memoryKB": 68.703125,
+      "timestamp": "2025-01-15T08:26:12.192Z",
+      "result": {
+        "value": 45
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0bd)",
+      "success": true,
+      "timeMs": 97.8471300000001,
+      "memoryKB": 61.1484375,
+      "timestamp": "2025-01-15T08:26:12.289Z",
+      "result": {
+        "value": 982
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0be)",
+      "success": true,
+      "timeMs": 79.71169700000064,
+      "memoryKB": 61.4609375,
+      "timestamp": "2025-01-15T08:26:12.369Z",
+      "result": {
+        "value": 954
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0bf)",
+      "success": true,
+      "timeMs": 56.16677399999935,
+      "memoryKB": 61.15625,
+      "timestamp": "2025-01-15T08:26:12.425Z",
+      "result": {
+        "value": 388
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0c0)",
+      "success": true,
+      "timeMs": 76.87889300000006,
+      "memoryKB": 61.6640625,
+      "timestamp": "2025-01-15T08:26:12.502Z",
+      "result": {
+        "value": 300
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0c1)",
+      "success": true,
+      "timeMs": 55.6105120000002,
+      "memoryKB": 61.2109375,
+      "timestamp": "2025-01-15T08:26:12.558Z",
+      "result": {
+        "value": 928
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0c2)",
+      "success": true,
+      "timeMs": 55.32512299999962,
+      "memoryKB": 61.4609375,
+      "timestamp": "2025-01-15T08:26:12.613Z",
+      "result": {
+        "value": 552
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0c3)",
+      "success": true,
+      "timeMs": 68.90536500000053,
+      "memoryKB": 61.15625,
+      "timestamp": "2025-01-15T08:26:12.682Z",
+      "result": {
+        "value": 907
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0c4)",
+      "success": true,
+      "timeMs": 99.34240500000033,
+      "memoryKB": 61.6328125,
+      "timestamp": "2025-01-15T08:26:12.782Z",
+      "result": {
+        "value": 794
+      }
+    },
+    {
+      "name": "Retrieve Value (ID: 6787711feb49f030798ae0c5)",
+      "success": true,
+      "timeMs": 104.98164500000075,
+      "memoryKB": 67.4921875,
+      "timestamp": "2025-01-15T08:26:12.887Z",
+      "result": {
+        "value": 85
+      }
+    },
+    {
+      "name": "Search Value: 45",
+      "success": true,
+      "timeMs": 28774.796702,
+      "memoryKB": -2594.6328125,
+      "timestamp": "2025-01-15T08:26:41.662Z",
+      "result": {
+        "success": true,
+        "matches": [
+          {
+            "id": "6787711eeb49f030798ae0bc",
+            "value": 45
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "name": "Search Value: 982",
+      "success": true,
+      "timeMs": 28599.347760999997,
+      "memoryKB": 80.96875,
+      "timestamp": "2025-01-15T08:27:10.261Z",
+      "result": {
+        "success": true,
+        "matches": [
+          {
+            "id": "6787711feb49f030798ae0bd",
+            "value": 982
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "name": "Search Value: 954",
+      "success": true,
+      "timeMs": 28612.883835999994,
+      "memoryKB": 62.71875,
+      "timestamp": "2025-01-15T08:27:38.874Z",
+      "result": {
+        "success": true,
+        "matches": [
+          {
+            "id": "6787711feb49f030798ae0be",
+            "value": 954
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "name": "Search Value: 388",
+      "success": true,
+      "timeMs": 28754.725217000014,
+      "memoryKB": 72.765625,
+      "timestamp": "2025-01-15T08:28:07.629Z",
+      "result": {
+        "success": true,
+        "matches": [
+          {
+            "id": "6787711feb49f030798ae0bf",
+            "value": 388
+          }
+        ],
+        "count": 1
+      }
+    },
+    {
+      "name": "Search Value: 300",
+      "success": true,
+      "timeMs": 28651.67014999999,
+      "memoryKB": 62.734375,
+      "timestamp": "2025-01-15T08:28:36.281Z",
+      "result": {
+        "success": true,
+        "matches": [
+          {
+            "id": "6787711feb49f030798ae0c0",
+            "value": 300
+          }
+        ],
+        "count": 1
+      }
+    }
+  ]
+}
